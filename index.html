@@ -15,12 +15,12 @@
   </head>
   <body>
     <header class="header">
+      <a class="navbar-brand" href="">
+        <img src="" alt="" class="brand-img" />
+        <p class="brand-text">Logo</p>
+      </a>
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="">
-            <img src="" alt="" class="brand-img" />
-            <p class="brand-text">Logo</p>
-          </a>
           <button
             class="navbar-toggler"
             type="button"
@@ -71,6 +71,32 @@
           >go to bot</a
         >
       </section>
+      <section class="problem">
+        <h2>Пробема</h2>
+        <p>опис проблеми</p>
+      </section>
+      <section class="solution">
+        <h2>Рішення</h2>
+        <p>опис рішення</p>
+      </section>
+      <section class="for">
+        <ul>
+          <li>
+            <h2>Для студентів:</h2>
+            <p>Покращюємо ...</p>
+            <a href="https://t.me/Coach_A_I_bot" class="bot" target="_blank"
+              >go to bot</a
+            >
+          </li>
+          <li>
+            <h2>Для школярів:</h2>
+            <p>Допомагаємо ...</p>
+            <a href="https://t.me/Coach_A_I_bot" class="bot" target="_blank"
+              >go to bot</a
+            >
+          </li>
+        </ul>
+      </section>
       <section class="advantages">
         <ul>
           <li>
@@ -109,7 +135,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h3 class="modal-title" id="exampleModalLabel">
-                  Заповніть форму
+                  Залиште свої дані, ми вам передзвонимо
                 </h3>
                 <button
                   type="button"
@@ -144,11 +170,13 @@
                     placeholder="Номер телефону..."
                     required
                   />
+                  <label for="message">Коментар:</label>
                   <textarea
-                    class="form-control"
+                    class="form-control mb-3"
                     id="message"
                     name="message"
                     rows="3"
+                    placeholder="Введіть текст..."
                   ></textarea>
                   <button type="submit" class="btn btn-primary">
                     Надіслати
