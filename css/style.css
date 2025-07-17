@@ -1,8 +1,42 @@
-.header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.container {
+  width: 1030px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
-.navbar-toggler{
-    border: none;
+.brand-img {
+  width: 80px;
+}
+.header {
+}
+.header-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-toggler {
+  border: none;
+}
+.hero {
+  background-image: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)
+    ),
+    url(../images/hero-img.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  height: 600px;
+}
+.title {
+  padding-top: 100px;
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 80px;
+}
+.hero-text {
+  text-align: center;
+  width: 700px;
+  margin: 0 auto;
+  color: #4d3c77;
 }
