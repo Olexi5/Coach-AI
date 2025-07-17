@@ -19,7 +19,7 @@
 .hero {
   background-image: linear-gradient(
       to top,
-      rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)
+      rgba(162, 103, 138, 0.5), rgba(255, 255, 255, 0.5)
     ),
     url(../images/hero-img.png);
   background-size: contain;
@@ -38,5 +38,5 @@
   text-align: center;
   width: 700px;
   margin: 0 auto;
-  color: #4d3c77;
+  color: #fff;
 }
