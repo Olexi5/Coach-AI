@@ -9,7 +9,12 @@
 .header {
   padding-top: 20px;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(255, 172, 152, 0.5);
+  background-image: linear-gradient(
+  to top,
+  rgba(255, 172, 152, 0.2),
+  rgba(255, 172, 152, 0)
+);
+
 }
 .navbar-brand {
   display: flex;
@@ -165,9 +170,9 @@
   width: 30px;
   margin-bottom: 10px;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 425px) {
   .container {
-    width: 480px;
+    width: 425px;
     margin: 0 auto;
     padding: 0 15px;
   }
@@ -182,23 +187,24 @@
     background-repeat: no-repeat;
     background-position: right;
     height: 300px;
+    padding-bottom: 200px;
   }
   .title {
     padding-top: 100px;
-    width: 400px;
+    width: 380px;
     margin: 0 auto;
     text-align: center;
     margin-bottom: 80px;
   }
   .hero-text {
     text-align: center;
-    width: 450px;
+    width: 395px;
     margin: 0 auto;
     color: #000;
     font-weight: 600;
   }
   .for-item {
-    width: 450px;
+    width: 395px;
     background-color: rgba(182, 109, 170, 0.1);
     padding-top: 40px;
     padding-bottom: 40px;
@@ -227,7 +233,7 @@
     margin-bottom: 20px;
   }
   .advant-item {
-    width: 215px;
+    width: 190px;
     border: 1px solid #4d3c77;
     padding: 20px;
     border-radius: 5px;
@@ -244,9 +250,9 @@
     display: grid;
     grid-template-columns: repeat(2, 215px);
     grid-template-rows: 220px 200px 220px 200px 220px;
-    grid-column-gap: 20px;
+    grid-column-gap: 15px;
     grid-row-gap: 20px;
-    width: 450px;
+    width: 395px;
     margin: 0 auto;
   }
   .advant-title {
@@ -266,8 +272,3 @@
     grid-area: 4 / 2 / 6 / 3;
   }
 }
-background-image: linear-gradient(
-  to top,
-  rgba(255, 172, 152, 0.2),
-  rgba(255, 172, 152, 0)
-);
