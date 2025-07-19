@@ -180,7 +180,7 @@
   }
   .logo-mobile-img{
     display: block;
-    width: 100px;
+    width: 120px;
   }
   .logo-img{
     display: none;
@@ -193,8 +193,8 @@
     align-items: center;
   }
   .hero{
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
   .title{
     font-size: 20px;
