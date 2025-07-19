@@ -3,20 +3,22 @@
   margin: 0 auto;
   padding: 0 15px;
 }
-.brand-img {
+.logo-mobile-img{
+  display: none
+}
+.logo-img {
   width: 60px;
 }
 .header {
   padding-top: 20px;
   padding-bottom: 10px;
   background-image: linear-gradient(
-  to top,
-  rgba(255, 172, 152, 0.2),
-  rgba(255, 172, 152, 0)
-);
-
+    to top,
+    rgba(255, 172, 152, 0.2),
+    rgba(255, 172, 152, 0)
+  );
 }
-.navbar-brand {
+.logo {
   display: flex;
   align-items: center;
 }
@@ -170,105 +172,24 @@
   width: 30px;
   margin-bottom: 10px;
 }
-@media screen and (max-width: 425px) {
-  .container {
-    width: 425px;
+@media (max-width: 480px) {
+  .container{
+    width: 320px;
     margin: 0 auto;
     padding: 0 15px;
   }
-  .hero {
-    background-image: linear-gradient(
-        to top,
-        rgba(255, 255, 255, 0.7),
-        rgba(255, 255, 255, 0.7)
-      ),
-      url(../images/hero-img.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right;
-    height: 300px;
-    padding-bottom: 200px;
-  }
-  .title {
-    padding-top: 100px;
-    width: 380px;
-    margin: 0 auto;
-    text-align: center;
-    margin-bottom: 80px;
-  }
-  .hero-text {
-    text-align: center;
-    width: 395px;
-    margin: 0 auto;
-    color: #000;
-    font-weight: 600;
-  }
-  .for-item {
-    width: 395px;
-    background-color: rgba(182, 109, 170, 0.1);
-    padding-top: 40px;
-    padding-bottom: 40px;
-    border-radius: 20px;
-    box-shadow: 1px 4px 6px 0px rgba(0, 0, 0, 0.16),
-      0px 4px 4px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
-  }
-  .for-title {
-    text-align: center;
-    margin: 0 auto;
-    margin-bottom: 30px;
-    width: 250px;
-  }
-  .for-text {
-    text-align: center;
-    width: 300px;
-    margin: 0 auto;
-  }
-  .for {
-    margin-bottom: 100px;
-  }
-  .advant-img {
-    width: 80px;
+  .logo-mobile-img{
     display: block;
-    margin: 0 auto;
-    margin-bottom: 20px;
+    width: 80px;
   }
-  .advant-item {
-    width: 190px;
-    border: 1px solid #4d3c77;
-    padding: 20px;
-    border-radius: 5px;
-    height: 440px;
+  .logo-img{
+    display: none;
   }
-  .advant-item-title {
-    text-align: center;
-    margin-bottom: 30px;
+  .logo-text{
+    display: none;
   }
-  .advant-text {
-    text-align: center;
-  }
-  .advant-list {
-    display: grid;
-    grid-template-columns: repeat(2, 215px);
-    grid-template-rows: 220px 200px 220px 200px 220px;
-    grid-column-gap: 15px;
-    grid-row-gap: 20px;
-    width: 395px;
-    margin: 0 auto;
-  }
-  .advant-title {
-    text-align: center;
-    margin-bottom: 80px;
-  }
-  .advant-item:nth-child(1) {
-    grid-area: 1 / 1 / 3 / 2;
-  }
-  .advant-item:nth-child(2) {
-    grid-area: 2 / 2 / 4 / 3;
-  }
-  .advant-item:nth-child(3) {
-    grid-area: 3 / 1 / 5 / 2;
-  }
-  .advant-item:nth-child(4) {
-    grid-area: 4 / 2 / 6 / 3;
+  .logo{
+    display: flex;
+    align-items: center;
   }
 }
