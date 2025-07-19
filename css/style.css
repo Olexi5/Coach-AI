@@ -1,10 +1,17 @@
+:root {
+  --color1: #e19898;
+  --color2: #a2678a;
+  --color3: #241649;
+  --color4: #c7a8c4;
+  --color5: #7a6daa;
+}
 .container {
   width: 1030px;
   margin: 0 auto;
   padding: 0 15px;
 }
-.logo-mobile-img{
-  display: none
+.logo-mobile-img {
+  display: none;
 }
 .logo-img {
   width: 60px;
@@ -173,36 +180,125 @@
   margin-bottom: 10px;
 }
 @media (max-width: 480px) {
-  .container{
+  .container {
     width: 100%;
     margin: 0 auto;
     padding: 0 15px;
   }
-  .logo-mobile-img{
+  .logo-mobile-img {
     display: block;
     width: 120px;
   }
-  .logo-img{
+  .logo-img {
     display: none;
   }
-  .logo-text{
+  .logo-text {
     display: none;
   }
-  .logo{
+  .logo {
     display: flex;
     align-items: center;
   }
-  .hero{
-    padding-top: 50px;
+  .hero {
     padding-bottom: 50px;
   }
-  .title{
+  .title {
     font-size: 20px;
     width: 200px;
     margin-bottom: 20px;
+    padding-top: 70px;
+    color: var(--color3);
   }
-  .hero-text{
+  .hero-text {
     font-size: 11px;
     width: 250px;
+    color: var(--color3);
+  }
+  .prob-title,
+  .sol-title,
+  .advant-title {
+    text-align: center;
+    color: var(--color3);
+    font-size: 18px;
+  }
+  .prob-text,
+  .sol-text {
+    font-size: 11px;
+    width: 280px;
+    color: var(--color3);
+  }
+  .for-list {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 50px;
+  }
+  .for-item {
+    width: 250px;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  .for-item:first-child {
+    margin-bottom: 30px;
+  }
+  .for-title {
+    text-align: center;
+    font-size: 15px;
+    color: var(--color3);
+    width: 120px;
+  }
+  .for-text {
+    font-size: 11px;
+    width: 210px;
+    color: var(--color3);
+  }
+  .advant-title {
+    width: 200px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    color: var(--color3);
+  }
+  .advant-img {
+    width: 60px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .advant-item {
+    width: 120px;
+    border: 1px solid #4d3c77;
+    padding: 5px;
+    padding-top: 10px;
+    border-radius: 5px;
+    height: 335px;
+  }
+  .advant-item-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: var(--color3);
+  }
+  .advant-text {
+    text-align: center;
+    font-size: 11px;
+    color: var(--color3);
+  }
+  .advant-list {
+    display: grid;
+    grid-template-columns: repeat(2, 120px);
+    grid-template-rows: repeat(5, 160px);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+  }
+  .advant-item:nth-child(1) {
+    grid-area: 1 / 1 / 3 / 2;
+  }
+  .advant-item:nth-child(2) {
+    grid-area: 2 / 2 / 4 / 3;
+  }
+  .advant-item:nth-child(3) {
+    grid-area: 3 / 1 / 5 / 2;
+  }
+  .advant-item:nth-child(4) {
+    grid-area: 4 / 2 / 6 / 3;
   }
 }
