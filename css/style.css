@@ -34,9 +34,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.navbar-toggler {
-  border: none;
-}
+
 .hero {
   background-image: linear-gradient(
       to top,
