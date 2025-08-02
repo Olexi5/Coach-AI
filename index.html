@@ -16,29 +16,30 @@
   <body>
     <header class="header">
       <div class="container header-cont">
-        <a class="logo" href="">
+        <a class="logo" href="./index.html">
           <img src="./images/logo.png" alt="" class="logo-img" />
           <img src="./images/logo-mobile.png" alt="" class="logo-mobile-img" />
           <p class="logo-text">ШІ-репетитор</p>
         </a>
         <nav class="nav">
           <button
-            class="btn btn-menu"
+            class="menu-btn"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasNav"
             aria-controls="offcanvasNav"
           >
-            Open
+            <svg class="menu-svg"><use href="./images/symbol-defs.svg#icon-burger"></use></svg>
           </button>
+
           <div
-            class="offcanvas offcnvas-end"
+            class="offcanvas offcanvas-end"
             tabindex="-1"
             id="offcanvasNav"
             aria-labelledby="offcanvasNavLabel"
           >
             <div class="offcanvas-header">
-              <a class="logo" href="">
+              <a class="logo" href="./index.html">
                 <img src="./images/logo.png" alt="" class="logo-img" />
                 <img
                   src="./images/logo-mobile.png"
@@ -55,31 +56,68 @@
               ></button>
             </div>
             <div class="offcanvas-body">
-              <ul class="menu-list">
-                <li class="menu-item"><a href="./index.html" class="menu-link">Головна</a></li>
-                <li class="menu-item"><a href="./coach.html" class="menu-link">Почати навчання</a></li>
-                <li class="menu-item dropdown">
+              <ul class="nav-canvas-list">
+                <li class="nav-item">
+                  <a href="./index.html" class="nav-link">Головна</a>
+                </li>
+                <li class="nav-item">
+                  <a href="./coach.html" class="nav-link">Почати навчання</a>
+                </li>
+                <li class="nav-item dropdown">
                   <a
+                    class="nav-link dropdown-toggle"
                     href="#"
-                    class="menu-link dropdown-toggle"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
-                  >Dropdown</a>
-                  <ul class="dropdown-menu">
-                    <li class="dropdown-item"><a href="" class="dropdown-link">something1</a></li>
-                    <li class="dropdown-item"><a href="" class="dropdown-link">something2</a></li>
-                    <li class="dropdown-item"><a href="" class="dropdown-link">something3</a></li>
+                  >
+                    Мова сайту
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="menu-item" href="./index.html">Українська</a></li>
+                    <li>
+                      <a class="menu-item" href="#">English</a>
+                    </li>
+                    <li>
+                      <a class="menu-item" href="#">Français</a>
+                    </li>
                   </ul>
                 </li>
               </ul>
             </div>
           </div>
+          <ul class="nav-list">
+                <li class="nav-item">
+                  <a href="./index.html" class="nav-link">Головна</a>
+                </li>
+                <li class="nav-item">
+                  <a href="./coach.html" class="nav-link">Почати навчання</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Мова сайту
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="menu-item" href="./index.html">Українська</a></li>
+                    <li>
+                      <a class="menu-item" href="#">English</a>
+                    </li>
+                    <li>
+                      <a class="menu-item" href="#">Français</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
         </nav>
       </div>
     </header>
     <main>
       <section class="container hero">
-        <h1 class="title">Освітній ШІ-репетитор у твоєму Telegram</h1>
+        <h1 class="title">Освітній ШІ-репетитор у твоєму браузері</h1>
         <p class="hero-text">
           Сьогодні навчання може бути досить непростим. Але тепер поруч є
           ШІ-репетитор, який допоможе розібратися в будь-якій темі, вдосконалити
