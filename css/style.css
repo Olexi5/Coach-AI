@@ -224,9 +224,19 @@
     padding-right: 0 !important;
   }
   .offcanvas{
-    position: absolute;
+    position: fixed !important;
     width: 100vw;
     height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+  }
+  .btn-close{
+    margin-left: 100px !important;
+  }
+  .offcanvas-header{
+    display: flex;
+    gap: 0px;
   }
   .container {
     width: 100%;
