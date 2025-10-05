@@ -1,0 +1,25 @@
+.hero {
+  background-image: url(../../images/hero-backr.png);
+  background-position: left;
+  background-size: cover;
+  padding: 171px 0 234px;
+  &__img {
+    width: 117px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 37px;
+    &__add {
+      display: none;
+    }
+  }
+  &__title {
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 32px;
+    margin-bottom: 24px;
+    line-height: 111.00000000000001%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: $title-color;
+  }
+}
