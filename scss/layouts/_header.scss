@@ -1,0 +1,14 @@
+.nav {
+  &__list {
+    @extend %flex;
+    gap: 61px;
+  }
+  &__link {
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 14px;
+    line-height: 111%;
+    letter-spacing: 0%;
+    color: $text-color;
+  }
+}
