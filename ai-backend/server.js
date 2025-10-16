@@ -1,8 +1,15 @@
-const express = require("express");
-const axios = require("axios");
-const dotenv = require("dotenv");
+import express from "express";
+import axios from "axios";
+import dotenv from "dotenv"; // Імпортуємо модуль dotenv
 
+// 💡 КРОК 1: ЗАВАНТАЖЕННЯ ЗМІННИХ З .env
+// Викликаємо конфігурацію, щоб завантажити змінні
 dotenv.config();
+
+// 💡 КРОК 2: ЗЧИТУВАННЯ ЗМІННИХ ПІСЛЯ ЗАВАНТАЖЕННЯ
+// Змінні process.env доступні після виклику dotenv.config()
+const apiKey = process.env.AI_API_KEY;
+const apiUrl = process.env.AI_API_URL;
 
 const app = express();
 const port = 3001; // Ваш порт для бек-енду
@@ -11,7 +18,6 @@ const port = 3001; // Ваш порт для бек-енду
 app.use(express.json());
 
 // 1. Налаштування CORS: Дозволити фронтенду звертатися до цього сервера
-// У продакшені замініть '*' на домен вашого сайту (наприклад, 'https://mysite.com')
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "POST, OPTIONS");
@@ -27,26 +33,33 @@ app.post("/api/ai-query", async (req, res) => {
     return res.status(400).json({ error: 'Поле "prompt" є обов\'язковим.' });
   }
 
-  try {
-    const aiResponse = await axios.post(
-      process.env.AI_API_URL,
-      {
-        // Тіло запиту API ШІ (залежить від API)
-        model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: prompt }],
-        max_tokens: 200,
-      },
-      {
-        // Захищений заголовок з ключем
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.AI_API_KEY}`,
-        },
-      }
+  // Додаткова перевірка
+  if (!apiKey || !apiUrl) {
+    console.error(
+      "AI_API_KEY або AI_API_URL не завантажено. Перевірте файл .env."
     );
+    return res.status(500).json({
+      success: false,
+      error: "Конфігурація сервера не повна. Перевірте змінні середовища.",
+    });
+  }
 
-    // Обробка відповіді (залежить від API)
-    const aiText = aiResponse.data.choices[0].message.content;
+  try {
+    const geminiBody = {
+      model: "gemini-2.5-flash",
+      contents: [{ role: "user", parts: [{ text: prompt }] }],
+    };
+
+    const finalUrl = `${apiUrl}?key=${apiKey}`;
+
+    const aiResponse = await axios.post(finalUrl, geminiBody, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    // Обробка відповіді Gemini
+    const aiText = aiResponse.data.candidates[0].content.parts[0].text;
 
     res.json({ success: true, response: aiText });
   } catch (error) {
@@ -54,9 +67,11 @@ app.post("/api/ai-query", async (req, res) => {
       "error API aI:",
       error.response ? error.response.data : error.message
     );
-    res
-      .status(500)
-      .json({ success: false, error: "Error processing request to AI" });
+    res.status(500).json({
+      success: false,
+      error: "Error processing request to AI",
+      details: error.response ? error.response.data : error.message,
+    });
   }
 });
 
