@@ -18,12 +18,21 @@ const port = process.env.PORT || 3001;
 app.use(express.json());
 
 // 1. Налаштування CORS: Дозволити фронтенду звертатися до цього сервера
-app.use((req, res, next) => {
-  // У продакшені замініть '*' на домен вашого фронтенду
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "POST, OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Content-Type");
-  next();
+app.get("/", (req, res) => {
+    res.json({ 
+        status: "OK", 
+        message: "AI Proxy Server працює!",
+        endpoint: "/api/ai-query",
+        method: "POST"
+    });
+});
+app.get("/", (req, res) => {
+  res.json({
+    status: "OK",
+    message: "AI Proxy Server працює!",
+    endpoint: "/api/ai-query",
+    method: "POST",
+  });
 });
 
 // --- Маршрут для запитів до ШІ ---
