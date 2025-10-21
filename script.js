@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Відображення статусу завантаження
-    responseDiv.textContent = "Обробка... ⏳";
+    responseDiv.textContent = "Обробка... ";
     sendButton.disabled = true;
 
     try {
