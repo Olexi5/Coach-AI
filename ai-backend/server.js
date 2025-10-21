@@ -1,6 +1,7 @@
 import express from "express";
 import axios from "axios";
 import dotenv from "dotenv";
+import cors from "cors"; // <-- НОВИЙ ІМПОРТ
 
 // 💡 КРОК 1: ЗАВАНТАЖЕННЯ ЗМІННИХ З .env
 dotenv.config();
@@ -10,22 +11,28 @@ const apiKey = process.env.AI_API_KEY;
 const apiUrl = process.env.AI_API_URL;
 
 const app = express();
-// 💡 ВИПРАВЛЕННЯ ДЛЯ RENDER: Використовуйте змінну середовища PORT, якщо вона є
-// Render автоматично встановлює змінну process.env.PORT, яку ми маємо використовувати.
+// Render автоматично встановлює змінну process.env.PORT
 const port = process.env.PORT || 3001;
 
 // --- Middlewares ---
+
+// 💡 ВИПРАВЛЕННЯ CORS: Використовуємо бібліотеку 'cors' для надійного дозволу
+// Це дозволяє будь-якому фронтенду (навіть на іншому домені) звертатися до цього API
+app.use(cors());
+
 app.use(express.json());
 
-// 1. Налаштування CORS: Дозволити фронтенду звертатися до цього сервера
-app.get("/", (req, res) => {
-    res.json({ 
-        status: "OK", 
-        message: "AI Proxy Server працює!",
-        endpoint: "/api/ai-query",
-        method: "POST"
-    });
+// ❌ ВИДАЛЕНА: Ручна конфігурація CORS, яку замінила бібліотека 'cors'
+/*
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*"); 
+  res.header("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  next();
 });
+*/
+
+// 💡 ДОДАНО: Тестова відповідь на GET-запит на кореневому шляху
 app.get("/", (req, res) => {
   res.json({
     status: "OK",
@@ -37,6 +44,7 @@ app.get("/", (req, res) => {
 
 // --- Маршрут для запитів до ШІ ---
 app.post("/api/ai-query", async (req, res) => {
+  // ... (Залиште тут решту коду, яка починається з const { prompt } = req.body;)
   const { prompt } = req.body;
 
   if (!prompt) {
@@ -89,6 +97,5 @@ app.post("/api/ai-query", async (req, res) => {
 
 // --- Запуск Сервера ---
 app.listen(port, () => {
-  // Тепер log покаже порт, який використовує Render (наприклад, 10000)
   console.log(`ai server started on http://localhost:${port}`);
 });
