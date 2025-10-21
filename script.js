@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const responseDiv = document.getElementById("ai-response");
 
   // Це URL вашого Node.js-сервера!
-  const nodeJsServerUrl = "http://localhost:3001/api/ai-query";
+  const nodeJsServerUrl = "https://coach-ai-4oc0.onrender.com/api/ai-query";
 
   sendButton.addEventListener("click", async () => {
     const userPrompt = promptInput.value.trim();
