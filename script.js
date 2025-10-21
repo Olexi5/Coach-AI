@@ -1,4 +1,3 @@
-// app.js
 
 document.addEventListener("DOMContentLoaded", () => {
   const promptInput = document.getElementById("ai-prompt");
@@ -44,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
       // Помилка мережі (Node.js сервер не запущений або недоступний)
       responseDiv.textContent =
-        "Помилка підключення до сервера. Переконайтеся, що Node.js-сервер запущено на http://localhost:3001.";
+        "Помилка підключення до сервера. Переконайтеся, що Node.js-сервер запущено на https://coach-ai-4oc0.onrender.com.";
       console.error("Помилка при з’єднанні з бек-ендом:", error);
     } finally {
       sendButton.disabled = false;
