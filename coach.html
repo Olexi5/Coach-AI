@@ -11,91 +11,17 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/main.min.css" />
   </head>
   <body>
     <header class="header">
-      <div class="container header-cont">
-        <a class="logo" href="./index.html">
-          <img src="./images/logo.png" alt="" class="logo-img" />
-          <img src="./images/logo-mobile.png" alt="" class="logo-mobile-img" />
-          <p class="logo-text">ШІ-репетитор</p>
-        </a>
-        <nav class="nav">
-          <button
-            class="menu-btn"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNav"
-            aria-controls="offcanvasNav"
-          >
-            ≡
-          </button>
-
-          <div
-            class="offcanvas offcanvas-end"
-            tabindex="-1"
-            id="offcanvasNav"
-            aria-labelledby="offcanvasNavLabel"
-            data-bs-backdrop="static"
-          >
-            <div class="offcanvas-header">
-              <a class="logo" href="./index.html">
-                <img src="./images/logo.png" alt="" class="logo-img" />
-                <img
-                  src="./images/logo-mobile.png"
-                  alt=""
-                  class="logo-mobile-img"
-                />
-                <p class="logo-text">ШІ-репетитор</p>
-              </a>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="nav-canvas-list">
-                <li class="nav-item">
-                  <a href="./index.html" class="nav-link">Головна</a>
-                </li>
-                <li class="nav-item">
-                  <a href="./coach.html" class="nav-link">Почати навчання</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="#"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Мова сайту
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-end">
-                    <li>
-                      <a class="menu-item" href="./index.html">Українська</a>
-                    </li>
-                    <li>
-                      <a class="menu-item" href="#">English</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <ul class="nav-list">
-            <li class="nav-item">
-              <a href="./index.html" class="nav-link">Головна</a>
-            </li>
-            <li class="nav-item">
-              <a href="./coach.html" class="nav-link">Почати навчання</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
+      <div class="container">
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="./index.html">Головна</a></li>
+          <li><a class="nav__link" href="./coach.html">Почати навчання</a></li>
+          <li><a
+                class="nav__link dropdown-toggle"
                 href="#"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -107,28 +33,150 @@
                 <li>
                   <a class="menu-item" href="./eng-index.html">English</a>
                 </li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
+              </ul></li>
+        </ul>
+      </nav>
       </div>
     </header>
-    <main>
-      <section id="ai-interface">
-        <textarea
-          id="ai-prompt"
-          rows="4"
-          placeholder="Ваше запитання..."
-        ></textarea>
-        <button id="send-button">Отримати відповідь</button>
+    <div class="chat-container">
+        
+        <header class="chat-header">
+            <h1>ШІ-репетитор</h1>
+            <p style="font-size: 0.8rem; color: #666;">Персональний помічник у навчанні на базі Gemini</p>
+        </header>
 
-        <div class="response-container">
-          <p id="ai-response">Очікування запиту...</p>
+        <!-- Контейнер для історії чату -->
+        <div id="chat-window">
+            <!-- Початкове повідомлення AI -->
+            <div class="message ai-message">
+                <p class="message-sender">ШІ-репетитор</p>
+                <p>Вітаю! Я готовий допомогти вам із навчанням</p>
+            </div>
         </div>
-      </section>
 
-    
-    </main>
+        <!-- Інпут та форма -->
+        <div class="chat-input">
+            <div id="error-message" style="display: none;"></div>
+            
+            <form id="chat-form" style="display: flex; width: 100%;">
+                <input type="text" id="user-input" placeholder="Введіть ваше повідомлення..." required autocomplete="off">
+                
+                <button type="submit" id="send-button">
+                    Надіслати
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const RENDER_API_URL = "https://coach-ai-frontend.onrender.com/api/ai-query";
+        
+        const chatWindow = document.getElementById('chat-window');
+        const chatForm = document.getElementById('chat-form');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+        const errorMessageDiv = document.getElementById('error-message');
+
+        // Функція для додавання повідомлення до вікна чату
+        function appendMessage(text, sender, isTemporary = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}-message`;
+            
+            if (isTemporary) {
+                messageDiv.id = 'temp-ai-message';
+            }
+
+            // Додаємо ім'я
+            const senderName = document.createElement('p');
+            senderName.className = 'message-sender';
+            senderName.textContent = sender === 'user' ? 'Ви' : 'AI Асистент';
+            
+            const messageText = document.createElement('p');
+            messageText.innerHTML = text; 
+
+            messageDiv.appendChild(senderName);
+            messageDiv.appendChild(messageText);
+            
+            chatWindow.appendChild(messageDiv);
+            
+            // Прокрутка до останнього повідомлення
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+            return messageDiv;
+        }
+
+        // Головна функція обробки відправки форми
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const prompt = userInput.value.trim();
+
+            if (!prompt) return;
+
+            // 1. Приховуємо помилку та блокуємо інпут
+            errorMessageDiv.style.display = 'none';
+            sendButton.disabled = true;
+            userInput.disabled = true;
+
+            // 2. Додаємо повідомлення користувача
+            appendMessage(prompt, 'user');
+            userInput.value = ''; 
+            
+            // 3. Додаємо тимчасове повідомлення AI (індикатор завантаження)
+            // Використовуємо простий текст '...' як індикатор
+            let tempMessage = appendMessage('...', 'ai', true);
+
+            try {
+                // 4. Надсилаємо запит до нашого Render API
+                const response = await fetch(RENDER_API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ prompt: prompt }),
+                });
+
+                // Перевірка відповіді
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || 'Помилка сервера. Спробуйте ще раз.');
+                }
+
+                // 5. Обробка успішної відповіді
+                const data = await response.json();
+
+                // 6. Оновлюємо тимчасове повідомлення відповіддю від AI
+                const aiResponseText = data.response;
+                
+                // Видаляємо тимчасове повідомлення
+                tempMessage.remove(); 
+
+                // Додаємо фінальну відповідь
+                appendMessage(aiResponseText, 'ai');
+
+            } catch (error) {
+                // 7. Обробка помилки підключення або сервера
+                let errorText = `Помилка підключення до сервера. Переконайтеся, що Node.js-сервер запущено на ${RENDER_API_URL}.`;
+                
+                // Видаляємо тимчасове повідомлення
+                if(tempMessage) tempMessage.remove();
+
+                // Якщо це не помилка мережі, показуємо деталі
+                if (error.message && error.message.includes("Error processing request to AI")) {
+                   errorText = `Помилка API: ${error.message}`;
+                } else if (error.message) {
+                    errorText = error.message;
+                }
+                
+                errorMessageDiv.textContent = errorText;
+                errorMessageDiv.style.display = 'block';
+                
+            } finally {
+                // 8. Розблокуємо елементи
+                sendButton.disabled = false;
+                userInput.disabled = false;
+                userInput.focus();
+            }
+        });
+    </script>
     <script src="./script.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script

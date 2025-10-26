@@ -3,22 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Coach-AI</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./css/main.min.css" />
   </head>
   <body>
-    <header class="container header">
-      <nav class="nav">
-        <ul class="nav__list">
-          <li class="nav__item">
-            <a href="./index.html" class="nav__link">Головна</a>
-          </li>
-          <li class="nav__item">
-            <a href="" class="nav__link">Почати навчання</a>
-          </li>
-          <li class="nav__item"><a href="" class="nav__link">Мова сайту</a></li>
-        </ul>
-      </nav>
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <ul class="nav__list">
+            <li><a class="nav__link" href="./index.html">Main</a></li>
+            <li><a class="nav__link" href="./coach.html">Start learning</a></li>
+            <li>
+              <a
+                class="nav__link dropdown-toggle"
+                href="#"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Website language
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="menu-item" href="./index.html">Українська</a></li>
+                <li>
+                  <a class="menu-item" href="./eng-index.html">English</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
     <main>
       <section class="hero">
@@ -67,130 +86,148 @@
               />
             </defs>
           </svg>
-          <div class="hero__blur1"><img class="hero__blur1__img" src="./images/blur1.png" alt=""></div>
-          <div class="hero__blur2"><img class="hero__blur2__img" src="./images/blur2.png" alt=""></div>
-          <h1 class="hero__title">Освітній ШІ-репетитор у твоєму браузері.</h1>
+          <div class="hero__blur1">
+            <img class="hero__blur1__img" src="./images/blur1.png" alt="" />
+          </div>
+          <div class="hero__blur2">
+            <img class="hero__blur2__img" src="./images/blur2.png" alt="" />
+          </div>
+          <h1 class="hero__title">An educational AI tutor in your browser.</h1>
           <p class="hero__text">
-            Сьогодні навчання може бути досить непростим. Але тепер поруч є
-            ШІ-репетитор, який допоможе розібратися в будь-якій темі,
-            вдосконалити знання з предметів та зробити процес навчання
-            захопливим.
+            Studying can be quite challenging these days. But now there is an AI
+            tutor to help you understand any topic, improve your knowledge of
+            subjects, and make the learning process exciting.
           </p>
-          <button class="hero__btn">Почати навчання</button>
+          <a class="hero__btn" href="./coach.html">Start learning</a>
         </div>
       </section>
       <section class="container about">
         <div class="losses">
-          <h2 class="about__title">Чому освітні втрати важливі?</h2>
+          <h2 class="about__title">Why are educational losses important?</h2>
           <p class="about__text">
-            Війна та карантин спровокували значні освітні втрати, оскільки
-            школярі та студенти були змушені пропускати уроки. В Україні ці
-            втрати оцінюються у 5,5 мільярдів доларів. Через це учні ризикують
-            втрачати до 1400 доларів річного доходу, а за все життя ця сума може
-            досягти 25 тисяч доларів. У разі закриття шкіл у всьому світі на 5
-            місяців вартість навчальних втрат становитиме 10 трильйонів доларів.
+            The war and quarantine have caused significant educational losses,
+            as schoolchildren and students have been forced to miss classes. In
+            Ukraine, these losses are estimated at $5.5 billion. As a result,
+            students risk losing up to $1,400 in annual income, and over their
+            lifetime, this amount could reach $25,000. If schools around the
+            world are closed for five months, the cost of educational losses
+            will be $10 trillion.
           </p>
         </div>
         <div class="about__robot">
           <img class="about__robot__img" src="./images/hero-img.png" alt="" />
         </div>
         <div class="ability">
-          <h2 class="about__title">Що вміє бот?</h2>
+          <h2 class="about__title">What can the bot do?</h2>
           <p class="about__text">
-            Наш ШІ-репетитор створений для того, щоб допомогти вам<b
-              class="about__text__bold"
-              >подолати прогалини у навчанні</b
-            >. Він оцінює ваш рівень знань, визначає слабкі й сильні сторони та
-            створює
-            <b class="about__text__bold">персоналізований план навчання</b> саме
-            для вас. Усе відбувається у зручному форматі,який включає відео,
-            тести, інтерактивні завдання та елементи гри, щоб навчання було
-            <b class="about__text__bold">не нудним, а справді захопливим</b>.
-            Бот пояснює ваші помилки, пропонує вправи для їх виправлення та
-            регулярно <b class="about__text__bold">показує ваш прогрес</b>, щоб
-            ви могли оцінити свої досягнення і зрозуміти, над чим варто
-            працювати далі.
+            Our AI tutor is designed to help you<b class="about__text__bold"
+              >overcome gaps in learning</b
+            >. It assesses your level of knowledge, identifies your strengths
+            and weaknesses, and creates
+            <b class="about__text__bold">personalised learning plan</b> just for
+            you. Everything is presented in a convenient format that includes
+            videos, tests, interactive tasks and game elements to make learning
+            <b class="about__text__bold">not boring, but truly exciting</b>. The
+            bot explains your mistakes, suggests exercises to correct them, and
+            regularly <b class="about__text__bold">shows your progress</b>so
+            that you can evaluate your achievements and understand what you need
+            to work on further.
           </p>
         </div>
       </section>
-      <!-- <section class="container for">
-        <h2 class="section__title">Для кого створений ШІ-репетитор?</h2>
+      <section class="container for">
+        <h2 class="section__title">Who is the AI tutor designed for?</h2>
         <ul class="for__list">
           <li class="for__item">
-            <h3 class="for__item__h3">Для студентів: 18-24</h3>
+            <h3 class="for__item__h3">For students: 18-24</h3>
             <p class="for__item__text">
-              Надаємо підтримку у вивченні складних тем, адаптації до
-              академічного середовища або покращення навичок тайм-менеджменту.
+              We provide support in studying complex topics, adapting to
+the academic environment, or improving time management skills.
             </p>
           </li>
           <li class="for__item">
-            <h3 class="for__item__h3">Для підлітків: 12-17</h3>
+            <h3 class="for__item__h3">For teenagers: 12-17</h3>
             <p class="for__item__text">
-              Учням середньої і старшої школи допомагаємо заповнити прогалини у
-              знаннях і зробити навчання легшим і цікавішим.
+              We help middle and high school students fill gaps in their knowledge and make learning easier and more interesting.
             </p>
           </li>
         </ul>
-      </section> -->
-      <!-- <section class="container advant">
-        <h2 class="section__title">Чому варто обрати саме нас?</h2>
+      </section>
+      <section class="container advant">
+        <h2 class="section__title">Why choose us?</h2>
         <ul class="advant__list">
           <li class="advant__item">
             <h3 class="advant__item__num">01.</h3>
-            <h3 class="advant__item__title">Персональний підхід</h3>
+            <h3 class="advant__item__title">Personalised approach</h3>
             <p class="advant__item__text">
-              ШІ-репетитор адаптується до ваших потреб: спочатку оцінює рівень
-              знань, а потім розробляє персональний навчальний план, який
-              допомагає охопити всі необхідні аспекти.
+              The AI tutor adapts to your needs: first, it assesses your level of knowledge,
+then develops a personalised learning plan that
+helps you cover all the necessary aspects.
             </p>
           </li>
           <li class="advant__item">
             <h3 class="advant__item__num">02.</h3>
-            <h3 class="advant__item__title">Пояснення помилок</h3>
+            <h3 class="advant__item__title">Explanation of errors</h3>
             <p class="advant__item__text">
-              Бот не лише дає відповіді, а й допомагає зрозуміти, де ви
-              помилились, і підказує, як це виправити.
+              The bot not only provides answers, but also helps you understand where you went wrong and suggests how to fix it.
             </p>
           </li>
           <li class="advant__item">
             <h3 class="advant__item__num">03.</h3>
-            <h3 class="advant__item__title">Інтерактивність</h3>
+            <h3 class="advant__item__title">Interactivity</h3>
             <p class="advant__item__text">
-              Навчання стає цікавішим завдяки інтерактивним відео, тестам і
-              різноманітним завданням, що роблять складні теми більш доступними
-              та зрозумілими.
+              Learning becomes more interesting thanks to interactive videos, tests and
+              a variety of tasks that make complex topics more accessible
+              and understandable.
             </p>
           </li>
           <li class="advant__item">
             <h3 class="advant__item__num">04.</h3>
-            <h3 class="advant__item__title">Гейміфікація</h3>
+            <h3 class="advant__item__title">Gamification</h3>
             <p class="advant__item__text">
-              Навчальний процес стає захопливою грою: рівні, нагороди та
-              досягнення мотивують рухатися далі.
+              The learning process becomes an exciting game: levels, rewards and
+achievements motivate you to move forward.
             </p>
           </li>
         </ul>
-      </section> -->
-      <!-- <section class="container support">
-        <h2 class="support__title">Підтримайте проєкт</h2>
+      </section>
+      <section class="container support">
+        <h2 class="support__title">Support project</h2>
         <button class="support__btn">
           <img src="" alt="" class="support__btn__img" />
-          <p class="support__btn__text">Підтримати проєкт</p>
+          <p class="support__btn__text">Support project</p>
         </button>
-      </section> -->
+      </section>
     </main>
-    <!-- <footer class="container footer">
+    <footer class="container footer">
       <ul class="footer__list">
         <li class="footer__item">
-          <a href="" class="footer__a">ШІ-репетитор</a>
+          <a href="" class="footer__a">Coach-AI</a>
         </li>
         <li class="footer__item">
-          <a href="" class="footer__a">Політика конфіденційності</a>
+          <a href="" class="footer__a">Privacy Policy</a>
         </li>
         <li class="footer__item">
           <a href="" class="footer__a">Social media</a>
         </li>
       </ul>
-    </footer> -->
+    </footer>
+    <script src="./script.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVpZVfvYPNcxl9yqGAQJtK/QltBqQ/2RHR"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XFwbbLwaJvX/FJqYx5c5W2t7cKSOhTO4rXz+uHPwzWfgyvZ6FfKq/AI"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
