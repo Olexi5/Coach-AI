@@ -1,0 +1,10 @@
+.about{
+    padding: 62px 0 26px;
+    &__title::before{
+        content: "";
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background-image: url(../../images/blur1.png);
+    }
+}

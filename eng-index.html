@@ -3,281 +3,194 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coach-Ai</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/main.min.css" />
   </head>
   <body>
-    <header class="header">
-      <div class="container header-cont">
-        <a class="logo" href="./index.html">
-          <img src="./images/logo.png" alt="" class="logo-img" />
-          <img src="./images/logo-mobile.png" alt="" class="logo-mobile-img" />
-          <p class="logo-text">Coach-AI</p>
-        </a>
-        <nav class="nav">
-          <button
-            class="menu-btn"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNav"
-            aria-controls="offcanvasNav"
-          >
-            ≡
-          </button>
-
-          <div
-            class="offcanvas offcanvas-end"
-            tabindex="-1"
-            id="offcanvasNav"
-            aria-labelledby="offcanvasNavLabel"
-            data-bs-backdrop="static"
-          >
-            <div class="offcanvas-header">
-              <a class="logo" href="./index.html">
-                <img src="./images/logo.png" alt="" class="logo-img" />
-                <img
-                  src="./images/logo-mobile.png"
-                  alt=""
-                  class="logo-mobile-img"
-                />
-                <p class="logo-text">ШІ-репетитор</p>
-              </a>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="nav-canvas-list">
-                <li class="nav-item">
-                  <a href="./index.html" class="nav-link">Головна</a>
-                </li>
-                <li class="nav-item">
-                  <a href="./coach.html" class="nav-link">Почати навчання</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="#"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Мова сайту
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="menu-item" href="./index.html">Українська</a></li>
-                    <li>
-                      <a class="menu-item" href="#">English</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <ul class="nav-list">
-                <li class="nav-item">
-                  <a href="./index.html" class="nav-link">Головна</a>
-                </li>
-                <li class="nav-item">
-                  <a href="./coach.html" class="nav-link">Почати навчання</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="#"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Мова сайту
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="menu-item" href="./index.html">Українська</a></li>
-                    <li>
-                      <a class="menu-item" href="./eng-index.html">English</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-        </nav>
-      </div>
+    <header class="container header">
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="./index.html" class="nav__link">Головна</a>
+          </li>
+          <li class="nav__item">
+            <a href="" class="nav__link">Почати навчання</a>
+          </li>
+          <li class="nav__item"><a href="" class="nav__link">Мова сайту</a></li>
+        </ul>
+      </nav>
     </header>
     <main>
-      <section class="container hero">
-        <h1 class="title">Educational AI tutor in your browser</h1>
-        <p class="hero-text">
-          Studying can be quite challenging these days. But now there is an AI tutor to help you understand any topic, improve
-          your knowledge of subjects, and make the learning process exciting.
-        </p>
-      </section>
-      <section class="container problem">
-        <h2 class="prob-title">Why educational loss matters</h2>
-        <p class="prob-text">
-          The war and pandemic have caused significant educational losses, as schoolchildren
-          and students have been forced to miss classes. In Ukraine, these losses
-          are estimated at $5.5 billion. As a result, students risk losing
-          up to $1,400 in annual income, and over their lifetime, this amount could reach $25,000
-          . If schools around the world are closed for five months
-          , the cost of educational losses will be $10 trillion.
-        </p>
-      </section>
-      <section class="container solution">
-        <h2 class="sol-title">What the bot can do</h2>
-        <p class="sol-text">
-          Our AI tutor is designed to help you overcome gaps in your learning. It analyses your knowledge level, identifies your strengths and weaknesses, and creates a personalised learning plan just for you. Everything is presented in a convenient way, including videos, quizzes, interactive tasks, and game elements to make learning fun and engaging. The bot explains everything in simple language, so you can understand it easily.
-          It explains your mistakes, suggests exercises to correct them,
-          and regularly shows your progress so you can evaluate
-          your achievements and understand what you need to work on next.
-        </p>
-      </section>
-      <section class="container for">
-        <ul class="for-list">
-          <li class="for-item">
-            <h2 class="for-title">For university students (18-24):</h2>
-            <p class="for-text">
-              We provide support in studying complex topics, adapting to the academic environment, or improving time management skills.
-            </p>
-          </li>
-          <li class="for-item">
-            <h2 class="for-title">For teenagers (12-17):</h2>
-            <p class="for-text">
-              We help middle and high school students fill gaps in their knowledge and make learning easier and more interesting.
-            </p>
-          </li>
-        </ul>
-      </section>
-      <section class="container advantages">
-        <h2 class="advant-title">Why you should choose us</h2>
-        <ul class="advant-list">
-          <li class="advant-item">
-            <img class="advant-img" src="./images/personal.png" alt="" />
-            <h2 class="advant-item-title">Personalised approach</h2>
-            <p class="advant-text">
-              The AI tutor adapts to your needs: first, it assesses your level of knowledge, and then develops a personalised learning plan that helps you cover all the necessary aspects.
-            </p>
-          </li>
-          <li class="advant-item">
-            <img class="advant-img" src="./images/mistakes.png" alt="" />
-            <h2 class="advant-item-title">Explanation of your mistakes</h2>
-            <p class="advant-text">
-              The bot not only provides answers, but also helps you understand where you went wrong and suggests how to fix it.
-            </p>
-          </li>
-          <li class="advant-item">
-            <img class="advant-img" src="./images/interactive.png" alt="" />
-            <h2 class="advant-item-title">Interactivity</h2>
-            <p class="advant-text">
-              Learning becomes more interesting thanks to interactive videos, tests and various tasks that make complex topics more accessible and understandable.
-            </p>
-          </li>
-          <li class="advant-item">
-            <img class="advant-img" src="./images/gaming.png" alt="" />
-            <h2 class="advant-item-title">Gamification</h2>
-            <p class="advant-text">
-              The learning process becomes an exciting game: levels, rewards and achievements motivate you to move forward.
-            </p>
-          </li>
-        </ul>
-      </section>
-      <section class="support">
-        <h2>Support title</h2>
-        <p>Support text</p>
-        <button
-          type="button"
-          class="btn-support"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-        >
-          <img class="support-img" src="./images/heart-Photoroom.png" alt="" />
-          <p class="btn-text">Support the project</p>
-        </button>
-        <div
-          class="modal fade"
-          id="exampleModal"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h3 class="modal-title" id="exampleModalLabel">
-                  Leave your data and we will call you back
-                </h3>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <input
-                    type="text"
-                    class="form-control mb-3"
-                    id="name"
-                    name="name"
-                    placeholder="Name..."
-                    required
-                  />
-                  <input
-                    type="email"
-                    class="form-control mb-3"
-                    id="email"
-                    name="email"
-                    placeholder="Email..."
-                    required
-                  />
-                  <input
-                    type="tel"
-                    class="form-control mb-3"
-                    id="number"
-                    name="number"
-                    placeholder="Phone number..."
-                    required
-                  />
-                  <label for="message">Коментар:</label>
-                  <textarea
-                    class="form-control mb-3"
-                    id="message"
-                    name="message"
-                    rows="3"
-                    placeholder="Enter your message..."
-                  ></textarea>
-                  <button type="submit" class="btn btn-primary">
-                    Send
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
+      <section class="hero">
+        <div class="container">
+          <img src="./images/hero-mobile.png" alt="" class="hero__img" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="37"
+            height="36"
+            viewBox="0 0 37 36"
+            fill="none"
+            class="hero__img__add"
+          >
+            <rect
+              x="0.5"
+              width="36"
+              height="36"
+              fill="url(#pattern0_104_185)"
+            />
+            <rect
+              x="0.5"
+              width="36"
+              height="36"
+              fill="none"
+              style="mix-blend-mode: lighten"
+            />
+            <defs>
+              <pattern
+                id="pattern0_104_185"
+                patternContentUnits="objectBoundingBox"
+                width="1"
+                height="1"
+              >
+                <use
+                  xlink:href="#image0_104_185"
+                  transform="scale(0.00195312)"
+                />
+              </pattern>
+              <image
+                id="image0_104_185"
+                width="512"
+                height="512"
+                preserveAspectRatio="none"
+                xlink:href="data:image/png;base64,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ECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgACBaxC4WH/jrfXz4jX8rWl/4uFa+OPA0q+tnq8G+nZv+XgtcD+wxEur5xuBvie0vLeW+CywyJur5+1A3+4tP1oLfBhY4pXV8/VA3+4tP79a4NH6eeJn2+CXV3iB/95ZPd1r3+C9wK2uWt51r/L3eid0sw/crHSzq/83Jf67+n+x/yfuGzy6TFxLTwIECBAgQCArIABk/XUnQIAAAQIRAQEgwq4pAQIECBDICggAWX/dCRAgQIBAREAAiLBrSoAAAQIEsgICQNZfdwIECBAgEBEQACLsmhIgQIAAgayAAJD1150AAQIECEQEBIAIu6YECBAgQCArIABk/XUnQIAAAQIRAQEgwq4pAQIECBDICggAWX/dCRAgQIBAREAAiLBrSoAAAQIEsgICQNZfdwIECBAgEBEQACLsmhIgQIAAgayAAJD1150AAQIECEQEBIAIu6YECBAgQCArIABk/XUnQIAAAQIRAQEgwq4pAQIECBDICggAWX/dCRAgQIBAREAAiLBrSoAAAQIEsgICQNZfdwIECBAgEBEQACLsmhIgQIAAgayAAJD1150AAQIECEQEBIAIu6YECBAgQCArIABk/XUnQIAAAQIRAQEgwq4pAQIECBDICggAWX/dCRAgQIBAREAAiLBrSoAAAQIEsgICQNZfdwIECBAgEBEQACLsmhIgQIAAgayAAJD1150AAQIECEQEBIAIu6YECBAgQCArIABk/XUnQIAAAQIRAQEgwq4pAQIECBDICggAWX/dCRAgQIBAREAAiLBrSoAAAQIEsgICQNZfdwIECBAgEBEQACLsmhIgQIAAgayAAJD1150AAQIECEQEBIAIu6YECBAgQCArIABk/XUnQIAAAQIRAQEgwq4pAQIECBDICggAWX/dCRAgQIBAREAAiLBrSoAAAQIEsgICQNZfdwIECBAgEBEQACLsmhIgQIAAgayAAJD1150AAQIECEQEBIAIu6YECBAgQCArIABk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"
+              />
+            </defs>
+          </svg>
+          <div class="hero__blur1"><img class="hero__blur1__img" src="./images/blur1.png" alt=""></div>
+          <div class="hero__blur2"><img class="hero__blur2__img" src="./images/blur2.png" alt=""></div>
+          <h1 class="hero__title">Освітній ШІ-репетитор у твоєму браузері.</h1>
+          <p class="hero__text">
+            Сьогодні навчання може бути досить непростим. Але тепер поруч є
+            ШІ-репетитор, який допоможе розібратися в будь-якій темі,
+            вдосконалити знання з предметів та зробити процес навчання
+            захопливим.
+          </p>
+          <button class="hero__btn">Почати навчання</button>
         </div>
       </section>
+      <section class="container about">
+        <div class="losses">
+          <h2 class="about__title">Чому освітні втрати важливі?</h2>
+          <p class="about__text">
+            Війна та карантин спровокували значні освітні втрати, оскільки
+            школярі та студенти були змушені пропускати уроки. В Україні ці
+            втрати оцінюються у 5,5 мільярдів доларів. Через це учні ризикують
+            втрачати до 1400 доларів річного доходу, а за все життя ця сума може
+            досягти 25 тисяч доларів. У разі закриття шкіл у всьому світі на 5
+            місяців вартість навчальних втрат становитиме 10 трильйонів доларів.
+          </p>
+        </div>
+        <div class="about__robot">
+          <img class="about__robot__img" src="./images/hero-img.png" alt="" />
+        </div>
+        <div class="ability">
+          <h2 class="about__title">Що вміє бот?</h2>
+          <p class="about__text">
+            Наш ШІ-репетитор створений для того, щоб допомогти вам<b
+              class="about__text__bold"
+              >подолати прогалини у навчанні</b
+            >. Він оцінює ваш рівень знань, визначає слабкі й сильні сторони та
+            створює
+            <b class="about__text__bold">персоналізований план навчання</b> саме
+            для вас. Усе відбувається у зручному форматі,який включає відео,
+            тести, інтерактивні завдання та елементи гри, щоб навчання було
+            <b class="about__text__bold">не нудним, а справді захопливим</b>.
+            Бот пояснює ваші помилки, пропонує вправи для їх виправлення та
+            регулярно <b class="about__text__bold">показує ваш прогрес</b>, щоб
+            ви могли оцінити свої досягнення і зрозуміти, над чим варто
+            працювати далі.
+          </p>
+        </div>
+      </section>
+      <!-- <section class="container for">
+        <h2 class="section__title">Для кого створений ШІ-репетитор?</h2>
+        <ul class="for__list">
+          <li class="for__item">
+            <h3 class="for__item__h3">Для студентів: 18-24</h3>
+            <p class="for__item__text">
+              Надаємо підтримку у вивченні складних тем, адаптації до
+              академічного середовища або покращення навичок тайм-менеджменту.
+            </p>
+          </li>
+          <li class="for__item">
+            <h3 class="for__item__h3">Для підлітків: 12-17</h3>
+            <p class="for__item__text">
+              Учням середньої і старшої школи допомагаємо заповнити прогалини у
+              знаннях і зробити навчання легшим і цікавішим.
+            </p>
+          </li>
+        </ul>
+      </section> -->
+      <!-- <section class="container advant">
+        <h2 class="section__title">Чому варто обрати саме нас?</h2>
+        <ul class="advant__list">
+          <li class="advant__item">
+            <h3 class="advant__item__num">01.</h3>
+            <h3 class="advant__item__title">Персональний підхід</h3>
+            <p class="advant__item__text">
+              ШІ-репетитор адаптується до ваших потреб: спочатку оцінює рівень
+              знань, а потім розробляє персональний навчальний план, який
+              допомагає охопити всі необхідні аспекти.
+            </p>
+          </li>
+          <li class="advant__item">
+            <h3 class="advant__item__num">02.</h3>
+            <h3 class="advant__item__title">Пояснення помилок</h3>
+            <p class="advant__item__text">
+              Бот не лише дає відповіді, а й допомагає зрозуміти, де ви
+              помилились, і підказує, як це виправити.
+            </p>
+          </li>
+          <li class="advant__item">
+            <h3 class="advant__item__num">03.</h3>
+            <h3 class="advant__item__title">Інтерактивність</h3>
+            <p class="advant__item__text">
+              Навчання стає цікавішим завдяки інтерактивним відео, тестам і
+              різноманітним завданням, що роблять складні теми більш доступними
+              та зрозумілими.
+            </p>
+          </li>
+          <li class="advant__item">
+            <h3 class="advant__item__num">04.</h3>
+            <h3 class="advant__item__title">Гейміфікація</h3>
+            <p class="advant__item__text">
+              Навчальний процес стає захопливою грою: рівні, нагороди та
+              досягнення мотивують рухатися далі.
+            </p>
+          </li>
+        </ul>
+      </section> -->
+      <!-- <section class="container support">
+        <h2 class="support__title">Підтримайте проєкт</h2>
+        <button class="support__btn">
+          <img src="" alt="" class="support__btn__img" />
+          <p class="support__btn__text">Підтримати проєкт</p>
+        </button>
+      </section> -->
     </main>
-    <footer></footer>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      integrity="sha384-I7E8VVD/ismYTF4hNIPjVpZVfvYPNcxl9yqGAQJtK/QltBqQ/2RHR"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-      integrity="sha384-0pUGZvbkm6XFwbbLwaJvX/FJqYx5c5W2t7cKSOhTO4rXz+uHPwzWfgyvZ6FfKq/AI"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+    <!-- <footer class="container footer">
+      <ul class="footer__list">
+        <li class="footer__item">
+          <a href="" class="footer__a">ШІ-репетитор</a>
+        </li>
+        <li class="footer__item">
+          <a href="" class="footer__a">Політика конфіденційності</a>
+        </li>
+        <li class="footer__item">
+          <a href="" class="footer__a">Social media</a>
+        </li>
+      </ul>
+    </footer> -->
   </body>
 </html>

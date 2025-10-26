@@ -1,0 +1,23 @@
+.nav {
+  &__list {
+    @extend %flex;
+    gap: 61px;
+  }
+  &__link {
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 14px;
+    line-height: 111%;
+    letter-spacing: 0%;
+    color: $text-color;
+    opacity: 1;
+  }
+}
+.header{
+  padding-bottom: 11px;
+  border-bottom: 1px solid #9191BF80;
+  position: absolute;
+  top: 85px;
+  left: 50%;
+  transform: translateX(-50%);
+}
