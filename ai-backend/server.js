@@ -46,6 +46,7 @@ app.post("/api/ai-query", async (req, res) => {
       contents: [{ parts: [{ text: prompt }] }],
     };
 
+    // Використовуємо fetchUrl без ключа в URL. Ключ API для безпеки краще передавати в заголовках, але для простоти Render ми залишаємо його в URL
     const fetchUrl = `${apiUrl}?key=${apiKey}`;
 
     // 2.2. Запит до Gemini API
@@ -57,33 +58,44 @@ app.post("/api/ai-query", async (req, res) => {
 
     // 2.3. Посилена обробка помилок Google API
     if (!aiResponse.ok) {
-      // Спроба прочитати тіло помилки, яке повертає Google
-      let errorText = await aiResponse.text();
+      // !!! КРИТИЧНА ЗМІНА: ПЕРЕВІРКА ТА ЛОГУВАННЯ
+      let errorText;
+      try {
+        // Спробуємо прочитати JSON помилку (стандартний формат для Google API)
+        errorText = await aiResponse.json();
+        errorText = JSON.stringify(errorText, null, 2);
+      } catch (jsonError) {
+        // Якщо не JSON, читаємо як простий текст
+        errorText = await aiResponse.text();
+      }
 
-      // Якщо Google повернув помилку (наприклад, 400, 403), ми її логуємо і повертаємо клієнту
+      // Логуємо повний статус і текст помилки в Render Logs
       let errorMessage = `Google API повернув статус ${aiResponse.status}. Деталі: ${errorText}`;
-      console.error("Google API Failure:", errorMessage);
+      console.error("GOOGLE API CRITICAL FAILURE:", errorMessage);
 
-      // Повертаємо деталі помилки клієнту в JSON форматі
+      // Повертаємо загальну помилку клієнту
       return res.status(502).json({
-        error: `Помилка обробки запиту до AI (Статус: ${aiResponse.status}). Ймовірна проблема з API-ключем або URL.`,
-        details: errorMessage.substring(0, 200), // Обмежуємо для безпеки
+        error: `Помилка обробки запиту до AI. Перевірте логі Render (Статус: ${aiResponse.status}).`,
+        details:
+          "Ймовірна проблема з API-ключем або URL. Дивіться логи для детальної помилки Google.",
       });
     }
 
     // 2.4. Обробка успішної відповіді
     const result = await aiResponse.json();
+
+    // 2.5. Перевірка, чи Gemini надав відповідь
     const responseText =
       result.candidates?.[0]?.content?.parts?.[0]?.text ||
       "AI не надав відповіді.";
 
-    // 2.5. Успішна відповідь клієнту
+    // 2.6. Успішна відповідь клієнту
     return res.json({ response: responseText });
   } catch (e) {
-    // 2.6. КРИТИЧНИЙ ЗБІЙ: Обробка будь-яких інших мережевих помилок або збоїв сервера
-    console.error("Критична помилка обробки API-запиту:", e);
+    // 2.7. КРИТИЧНИЙ ЗБІЙ: Обробка будь-яких інших мережевих помилок або збоїв сервера
+    console.error("Критична мережева помилка або збій сервера:", e);
 
-    // **Це гарантує, що ми завжди повертаємо JSON, уникаючи помилки 'Unexpected end of JSON input'**
+    // Це гарантує, що ми завжди повертаємо JSON
     return res.status(500).json({
       error: `Внутрішня помилка сервера. Невдале з'єднання з Google API.`,
       details: e.message,
