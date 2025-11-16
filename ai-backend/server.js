@@ -4,24 +4,25 @@ import cors from "cors";
 // Зчитування змінних середовища Render
 const apiKey = process.env.AI_API_KEY;
 const apiUrl = process.env.AI_API_URL;
-const port = process.env.PORT || 3001;
+// Використовуємо лише порт, наданий Render (process.env.PORT)
+const port = process.env.PORT;
 
 const app = express();
 app.use(express.json());
 app.use(cors()); // Дозволяємо CORS для всіх доменів
 
-// 1. Маршрут перевірки стану
+// 1. Маршрут перевірки стану (Оновлено на /query)
 app.get("/", (req, res) => {
   res.json({
     status: "OK",
     message: "AI Proxy Server працює!",
-    endpoint: "/api/ai-query",
+    endpoint: "/query",
     method: "POST",
   });
 });
 
-// 2. Основний маршрут для запитів до AI
-app.post("/api/ai-query", async (req, res) => {
+// 2. Основний маршрут для запитів до AI (Оновлено на /query)
+app.post("/query", async (req, res) => {
   // 2.1. Перевірка конфігурації
   if (!apiKey || !apiUrl) {
     console.error("ERROR: AI API Key or URL is missing.");
@@ -46,7 +47,7 @@ app.post("/api/ai-query", async (req, res) => {
       contents: [{ parts: [{ text: prompt }] }],
     };
 
-    // Використовуємо fetchUrl без ключа в URL. Ключ API для безпеки краще передавати в заголовках, але для простоти Render ми залишаємо його в URL
+    // Використовуємо fetchUrl
     const fetchUrl = `${apiUrl}?key=${apiKey}`;
 
     // 2.2. Запит до Gemini API
@@ -58,7 +59,6 @@ app.post("/api/ai-query", async (req, res) => {
 
     // 2.3. Посилена обробка помилок Google API
     if (!aiResponse.ok) {
-      // !!! КРИТИЧНА ЗМІНА: ПЕРЕВІРКА ТА ЛОГУВАННЯ
       let errorText;
       try {
         // Спробуємо прочитати JSON помилку (стандартний формат для Google API)
