@@ -50,3 +50,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+// Функція, яка викликається після отримання відповіді від бекенда
+function displayBotResponse(htmlResponse) {
+    const chatOutput = document.getElementById('chat-messages-area');
+    
+    // Створюємо новий елемент для повідомлення бота
+    const newBubble = document.createElement('div');
+    newBubble.className = 'message-bot';
+
+    // *** СУТЬ РІШЕННЯ ***
+    // Використовуємо innerHTML, щоб браузер обробив теги <h2>, <p> і т.д.
+    newBubble.innerHTML = htmlResponse; 
+
+    chatOutput.appendChild(newBubble);
+    chatOutput.scrollTop = chatOutput.scrollHeight; // Прокручуємо вниз
+}
+
+// Приклад виклику: 
+// displayBotResponse("<h2>Ласкаво просимо!</h2><p>Це відповідь у HTML.</p>");
