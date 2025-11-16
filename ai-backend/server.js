@@ -105,6 +105,11 @@ app.post("/query", async (req, res) => {
     // Формуємо URL для API, включаючи модель
     const fetchUrl = `${apiUrl}/${model}:generateContent?key=${apiKey}`;
 
+    // *** ДІАГНОСТИКА: ЛОГУВАННЯ ВИКОРИСТОВУВАНОГО URL ***
+    console.log(`[DIAG] Sending request to: ${fetchUrl.substring(0, 80)}...`);
+    console.log(`[DIAG] API Key presence: ${apiKey ? "Наявний" : "Відсутній"}`);
+    // *** КІНЕЦЬ ДІАГНОСТИКИ ***
+
     // 2.2. Запит до Gemini API
     const aiResponse = await fetch(fetchUrl, {
       method: "POST",
