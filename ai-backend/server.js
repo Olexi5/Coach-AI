@@ -117,14 +117,18 @@ app.post("/query", async (req, res) => {
       body: JSON.stringify(payload),
     });
 
-    // ... [Обробка помилок залишається незмінною] ...
+    // 2.3. Обробка помилок
     if (!aiResponse.ok) {
-      let errorText;
+      // Читаємо тіло відповіді як текст ОДИН РАЗ
+      const errorBodyRaw = await aiResponse.text();
+      let errorText = errorBodyRaw;
+
       try {
-        errorText = await aiResponse.json();
-        errorText = JSON.stringify(errorText, null, 2);
-      } catch (jsonError) {
-        errorText = await aiResponse.text();
+        // Спробуємо розібрати його як JSON для детальної інформації
+        const errorJson = JSON.parse(errorBodyRaw);
+        errorText = JSON.stringify(errorJson, null, 2);
+      } catch (parseError) {
+        // Якщо не JSON, використовуємо сирий текст, який вже є у errorText
       }
 
       let errorMessage = `Google API повернув статус ${aiResponse.status}. Деталі: ${errorText}`;
@@ -133,7 +137,7 @@ app.post("/query", async (req, res) => {
       return res.status(502).json({
         error: `Помилка обробки запиту до AI. Перевірте логі Render (Статус: ${aiResponse.status}).`,
         details:
-          "Ймовірна проблема з API-ключем або URL. Дивіться логи для детальної помилки Google.",
+          "Ймовірна проблема з API-ключем або URL. Дивіться логі для детальної помилки Google.",
       });
     }
 
