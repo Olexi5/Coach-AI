@@ -85,6 +85,7 @@ body {
         border-bottom-right-radius: 4px;
 
         .message-sender {
+            text-align: start;
             color: #c9e6ff;
         }
     }
@@ -96,7 +97,7 @@ body {
         border-bottom-left-radius: 4px;
 
         .message-sender {
-            text-align: start;
+            text-align:start;
             color: $primary-color;
         }
     }

@@ -11,17 +11,22 @@
 .nav {
   display: block;
   margin: 0 auto;
+  &__item{
+      width: 90px;
+    }
   @media screen and (min-width: 1200px) {
       width: 580px;
     }
   &__list {
     display: flex;
     gap: 30px;
+    justify-content: center;
     @media screen and (min-width: 1200px) {
       gap: 110px;
     }
   }
   &__link {
+    font-family: "Montserrat", sans-serif;
     color: $text-color;
     font-weight: 500;
     font-style: Medium;
@@ -32,4 +37,8 @@
         font-size: 18px;
     }
   }
+}
+.lang{
+  width: 100px;
+  background-color:#eeeeff;
 }
